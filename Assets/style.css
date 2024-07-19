@@ -5,8 +5,22 @@
 }
 
 body {
-    background-color: rgb(116, 185, 231);
+    background-color: #e3f2fd;
+    font-family: 'Arial', sans-serif;
 }
+
+.container {
+    margin-top: 22px;
+}
+
+#current-weather {
+    margin-bottom: 22px;
+}
+
+#forecast .card {
+    margin: 29px 0;
+}
+
 
 header {
     width: auto;
@@ -82,3 +96,4 @@ span {
     text-align: center;
     margin: 10px;
 }
+
