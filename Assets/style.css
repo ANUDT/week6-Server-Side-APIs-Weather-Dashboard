@@ -1,0 +1,82 @@
+/* Added margin to push 5 day forecast cards apart */
+.card-style {
+    margin: 15px;
+  }
+  :root{
+    --main-color:  rgb(28, 28, 60); /*only put the values here not the property and value*/
+    --secondary-color: rgb(77, 77, 77);
+    --font: Arial, Helvetica, sans-serif;
+    --border-radius: 5px;
+    --border: 3px solid var(--secondary-color);
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+body{
+    font-family: var(--font);
+    font-size: 16px;
+}
+
+.header{
+    background-color: var(--main-color);
+    color: white;
+    text-align: center;
+}
+
+aside{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: var(--border);
+    border-radius: var(--border-radius);
+    float: left; /*the 'float' CSS property floats the <aside> element to the left-hand side of its containing element '<main>'
+    (usually the <body> or a parent <div>). It allows other elements (weather div and forecast div) to flow around it.*/
+    width: 25%; /*sets the width of the <aside> element to 25% of its containing element's (<main>) width.*/
+}
+
+#search-div{
+    display: flex; /*makes this div a flex container*/
+    flex-direction: column; /*makes the main the main axis of the flex items a column [y](stack underneath e/o)*/
+    align-items: center; /*aligns the flex items in the center of the cross axis [row ie x] */
+}
+
+#search-history-div{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+.recent-searches{
+    border: var(--border);
+    border-radius: var(--border-radius);  
+}
+
+#weather{
+    border: var(--border);
+    border-radius: var(--border-radius);
+    float: right;
+    width: 75%;
+}
+#location-header{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#weather-forecast{
+    border: var(--border);
+    border-radius: var(--border-radius);
+    float: right;
+    width: 75%;
+}
+
+#forecast-days{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.forecast-day{
+    border: var(--border);
+    border-radius: var(--border-radius);
+}
