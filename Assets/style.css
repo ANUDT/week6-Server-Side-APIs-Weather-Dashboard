@@ -1,15 +1,15 @@
 :root{
     --font-family:Impact, 'Arial Narrow Bold', sans-serif
-    --font-size:Medium
-    --dark: #e473e4;
+    --font-size:Medium;
+    --dark: #7c067c;
 }
 body{
-    background-color: rgb(132, 153, 245);
+    background-color: rgb(245, 201, 118);
 }
 header{
     width:auto;
     display:inline-flexbox;
-    color: rgb(207, 48, 212);
+    color: rgb(46, 17, 99);
     font-family: var(--font-family);
     height: 69px;
     justify-content:end;
