@@ -65,8 +65,8 @@ span{
     font-size: 25px;
 },
 #imgWeather{
-    float: center;
-    margin: right 15px;15px;
+    border-top-left-radius: 0%;
+   margin: right 15px
     margin-top: -45px;
 }
 .forecastItem{
