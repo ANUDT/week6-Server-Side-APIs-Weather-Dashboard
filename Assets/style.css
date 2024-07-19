@@ -43,7 +43,7 @@ aside{
 }
 section{
     flex: 1 1 0;
-    float:inherit    
+    float:none;    
 }
 #weather{
     background-color: rgb(123, 219, 231);
@@ -62,11 +62,11 @@ section{
 span{
     padding: 25px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif';
-    font-size: 25px;
+    font-size: 15px;
 },
 #imgWeather{
-    border-top-left-radius: 0%;
-   margin: right 15px
+    float: center;
+    margin: right 15px;15px;
     margin-top: -45px;
 }
 .forecastItem{
@@ -88,7 +88,7 @@ hr{
     margin-left: 20px;
 }
 #recentLocations{
-    margin-left: 10px;
+    margin-left: 20px;
 }
 button {
     display: flex;
@@ -97,12 +97,13 @@ button {
     padding: 7px;
     justify-content: center;
     height: 48px;
-    width: 100%;
-    font-size: 25px;
+    width: 100
+    px;
+    font-size: 15px;
     background-color: #b0e45d;
-    border-radius: 7px;
+    border-radius: 5px;
     border: var(--dark);
-    margin-left: 15px;
+    margin-left: 10px;
 }
 .temperature{
     padding: 7px;
