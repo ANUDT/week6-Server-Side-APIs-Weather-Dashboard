@@ -1,153 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
 
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Weather Forecast</title>
-      <link rel="stylesheet" href="./assets/style.css"/>
-      <script
-        src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
-        crossorigin="anonymous"
-      ></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+    <script src="key.js"></script>
+    <script src="script.js"></script>
+
+    <header class="header">
+        <h1>WEATHER FORECAST DASHBOARD</h1>
+    </header>
   </head>
-  
-  <body>
-      <header class="header">
-          <h1>WEATHER FORECAST DASHBOARD</h1>
-      </header>
-  
-      <main>
-          <aside>
-              <h1 class="header">CITY</h1>
-              <div id="search-div">
-                  <input placeholder="enter a location" id="search-box" justify-text: center ></input>
-                  <button id="submit-btn">SEARCH</button>
-                  <div id="error-msg"></div>
-              </div>
-  
-              <h1 class="header">HISTORY PRECIOUS CITY'S:</h1>
-              <div id="search-history-div">
-              </div>
-          </aside>
-  
-          <section>
-              <div id="weather">
-                  <div id="location-header">
-                      <div class="weather-icon">
-                          <div class="weather-location" id="current-location">Current location</div>
-                          <span id="current-date"></span>
-                          <img src="" alt="weather icon" id="cloud-icon"></img>
-                      </div>
-                  </div>
-      
-                  <div id="weather-info">
-                      <div class="temp">
-                          <span>Temperature:</span><span id="temp-span">0</span>
-                      </div>
-                      <div class="wind">
-                          <span>Wind:</span><span id="wind-span">0</span>
-                      </div>
-                      <div class="humidity">
-                          <span>Humidity:</span><span id="humidity-span">0</span>
-                      </div>
-                  </div>
-              </div>
-              
-  
-              <div id="weather-forecast"> 
-                <h1> WEATHER FORECAST FOR DAYS</h1>
-                  <div id="forecast-days">
-                      <div class="forecast-day">
-                          <div class="date"> nr 1 date</div>
-                          <img class="forecast-icon"alt="weather icon">
-                              
-                        </img>
-                        <div class="temp">
-                         Temp
-                        </div>
-                         <div class="humidity">
-                         Humidity
-                        </div>
-                        <div class="wind">
-                          Wind
-                         </div>
-                      </div>
-                      <div class="forecast-day">
-                          <div class="date">nr 2 date</div>
-                          <img class="forecast-icon"alt="weather icon">
-                              
-                        </img>
-                        <div class="temp">
-                         Temp
-                        </div>
-                         <div class="humidity">
-                         Humidity
-                        </div>
-                        <div class="wind">
-                          Wind
-                         </div>
-                      </div>
-                      <div class="forecast-day">
-                          <div class="date">nr 3 date</div>
-                          <img class="forecast-icon"alt="weather icon">
-                              
-                        </img>
-                        <div class="temp">
-                         Temp
-                        </div>
-                         <div class="humidity">
-                         Humidity
-                        </div>
-                        <div class="wind">
-                          Wind
-                         </div>
-                      </div>
-                      <div class="forecast-day">
-                          <div class="date">nr 4 date</div>
-                          <img class="forecast-icon"alt="weather icon">
-                              
-                        </img>
-                        <div class="temp">
-                         Temp
-                        </div>
-                         <div class="humidity">
-                         Humidity
-                        </div>
-                        <div class="wind">
-                          Wind
-                         </div>
-                      </div>
-                      <div class="forecast-day">
-                          <div class="date">nr 5 date </div>
-                          <img class="forecast-icon"alt="weather icon">
-                              
-                          </img>
-                          <div class="temp">
-                           Temp
-                          </div>
-                           <div class="humidity">
-                           Humidity
-                          </div>
-                          <div class="wind">
-                            Wind
-                           </div>
-                      </div>
-                      
-      
-                  </div>                
-              </div>
-  
-          </section>
-  
-      </main>
-      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-      <script src="./assets/starter.js"></script>
-  </body>
-  </html>
 
+    <body>
+        <main>
+            <nav>
+            <div class="nav-wrapper blue darken-1">
+                <a href="#" class="brand-logo center">Weather Dashboard</a>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m4">
+                    <div class="input-field">
+                        <input type="text" id="search-box" placeholder="Enter a city">
+                        <button id="submit-btn" class="btn waves-effect waves-light">Search</button>
+                        <div id="error-msg" class="red-text"></div>
+                    </div>
+                    <h5>Search History</h5>
+                    <div id="search-history-div" class="collection"></div>
+                </div>
+                <div class="col s12 m8">
+                    <div id="current-weather" class="card blue lighten-4">
+                        <div class="card-content">
+                            <h5 id="current-location">Current Location</h5>
+                            <p id="current-date"></p>
+                            <img id="current-icon" src="" alt="Weather icon">
+                            <p>Temperature: <span id="current-temp">0</span>°C</p>
+                            <p>Wind: <span id="current-wind">0</span> m/s</p>
+                            <p>Humidity: <span id="current-humidity">0</span>%</p>
+                        </div>
+                    </div>
+                    <div id="forecast">
+                        <h5>5-Day Forecast</h5>
+                        <div id="forecast-days" class="row">
+                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+     <section>
+        <div id="weather">
+            <div id="location-header">
+                <div class="weather-icon">
+                    <div class="weather-location" id="current-location">Current location</div>
+                    <span id="current-date"></span>
+                    <img src="" alt="weather icon" id="cloud-icon"></img>
+                </div>
+            </div>
+
+            <div id="weather-info">
+                <div class="temp">
+                    <span>Temperature:</span><span id="temp-span">0</span>
+                </div>
+                <div class="wind">
+                    <span>Wind:</span><span id="wind-span">0</span>
+                </div>
+                <div class="humidity">
+                    <span>Humidity:</span><span id="humidity-span">0</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div id="weather-forecast">
+            <h1> WEATHER FORECAST FOR DAYS</h1>
+            <div id="forecast-days">
+                <div class="forecast-day">
+                    <div class="date"> nr 1 date</div>
+                    <img class="forecast-icon" alt="weather icon">
+
+                    </img>
+                    <div class="temp">
+                        Temp
+                    </div>
+                    <div class="humidity">
+                        Humidity
+                    </div>
+                    <div class="wind">
+                        Wind
+                    </div>
+                </div>
+                <div class="forecast-day">
+                    <div class="date">nr 2 date</div>
+                    <img class="forecast-icon" alt="weather icon">
+
+                    </img>
+                    <div class="temp">
+                        Temp
+                    </div>
+                    <div class="humidity">
+                        Humidity
+                    </div>
+                    <div class="wind">
+                        Wind
+                    </div>
+                </div>
+                <div class="forecast-day">
+                    <div class="date">nr 3 date</div>
+                    <img class="forecast-icon" alt="weather icon">
+
+                    </img>
+                    <div class="temp">
+                        Temp
+                    </div>
+                    <div class="humidity">
+                        Humidity
+                    </div>
+                    <div class="wind">
+                        Wind
+                    </div>
+                </div>
+                <div class="forecast-day">
+                    <div class="date">nr 4 date</div>
+                    <img class="forecast-icon" alt="weather icon">
+
+                    </img>
+                    <div class="temp">
+                        Temp
+                    </div>
+                    <div class="humidity">
+                        Humidity
+                    </div>
+                    <div class="wind">
+                        Wind
+                    </div>
+                </div>
+                <div class="forecast-day">
+                    <div class="date">nr 5 date </div>
+                    <img class="forecast-icon" alt="weather icon">
+
+                    </img>
+                    <div class="temp">
+                        Temp
+                    </div>
+                    <div class="humidity">
+                        Humidity
+                    </div>
+                    <div class="wind">
+                        Wind
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   </main>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="./assets/starter.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="./assets/js/script.js"></script>
+<script src="./script.js"></script>
+
 </body>
 </html>
