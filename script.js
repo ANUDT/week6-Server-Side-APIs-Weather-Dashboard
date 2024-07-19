@@ -2,16 +2,16 @@ const WEATHER_API_BASE_URL = 'https://api.openweathermap.org';
 const WEATHER_API_KEY = 'f23ee9deb4e1a7450f3157c44ed020e1';
 const MAX_DAILY_FORECAST = 5;
 
-var searchHistoryEl = document.getElementById('search-history-div')
-var tempSpanEl = document.getElementById('temp-span')
-var windSpanEl = document.getElementById('wind-span')
-var humiditySpanEl = document.getElementById('humidity-span')
-var currentLocationEl = document.getElementById('current-location')
-var currentDateSpanEl = document.getElementById('current-date')
-var cloudIconImgEl = document.getElementById('cloud-icon')
+var searchHistory2El = document.getElementById('search-history-div')
+var tempSpan2El = document.getElementById('temp-span')
+var windSpan2El = document.getElementById('wind-span')
+var humiditySpan2El = document.getElementById('humidity-span')
+var currentLocation2El = document.getElementById('current-location')
+var currentDateSpan2El = document.getElementById('current-date')
+var cloudIconImg2El = document.getElementById('cloud-icon')
 
-const searchInputEl = document.getElementById('search-box');
-const searchButtonEl = document.getElementById('submit-btn');
+const searchInput2El = document.getElementById('search-box');
+const searchButton2El = document.getElementById('submit-btn');
 
 
 var savedCities = JSON.parse(localStorage.getItem('city-key')) || []
@@ -25,9 +25,9 @@ savedCities.forEach(function (element) {
 
 
 let search;
-function clickSearchBtn() {
+function clickSearchBtn2() {
   search = searchInputEl.value
-  searchHistoryEl.innerHTML += `<div class="recent-searches">${search}<div>`
+  searchHistory2El.innerHTML += `<div class="recent-searches">${search}<div>`
   savedCities.push(search)
   localStorage.setItem('city-key', JSON.stringify(savedCities))
 
@@ -38,11 +38,11 @@ function clickSearchBtn() {
 
 $(document).on('click', '.recent-searches', function (event) {
   search = $(this).text()
-  doSomething()
+  doSomething2()
 })
 
 
-function doSomething() {
+function doSomething2() {
 
   var apiUrl = `${WEATHER_API_BASE_URL}/geo/1.0/direct?q=${search}&limit=5&appid=${WEATHER_API_KEY}`;
   fetch(apiUrl)
@@ -54,7 +54,7 @@ function doSomething() {
 
       var lat = data[0].lat;
       var lon = data[0].lon;
-      currentLocationEl.textContent = data[0].name
+      currentLocation2El.textContent = data[0].name
 
 
       var apiUrl = `${WEATHER_API_BASE_URL}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${WEATHER_API_KEY}`;
@@ -66,11 +66,11 @@ function doSomething() {
           console.log(data);
 
 
-          humiditySpanEl.textContent = data.current.humidity
-          windSpanEl.textContent = data.current.wind_speed
-          tempSpanEl.textContent = data.current.temp
+          humiditySpan2El.textContent = data.current.humidity
+          windSpan2El.textContent = data.current.wind_speed
+          tempSpan2El.textContent = data.current.temp
           var currentDate = data.current.dt
-          currentDateSpanEl.textContent = dayjs.unix(currentDate).format('YYYY-MM-DD')
+          currentDateSpan2El.textContent = dayjs.unix(currentDate).format('YYYY-MM-DD')
 
           var weatherIconURL = `http://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`;
           cloudIconImgEl.setAttribute('src', weatherIconURL)
@@ -89,4 +89,4 @@ function doSomething() {
         })
     })
 }
-searchButtonEl.addEventListener('click', clickSearchBtn)
+searchButton2El.addEventListener('click', clickSearchBtn)

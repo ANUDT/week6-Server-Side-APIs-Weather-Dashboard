@@ -1,82 +1,146 @@
-/* Added margin to push 5 day forecast cards apart */
-.card-style {
-    margin: 15px;
-  }
-  :root{
-    --main-color:  rgb(28, 28, 60); /*only put the values here not the property and value*/
-    --secondary-color: rgb(77, 77, 77);
-    --font: Arial, Helvetica, sans-serif;
-    --border-radius: 5px;
-    --border: 3px solid var(--secondary-color);
+:root{
+    --font-family:Impact, 'Arial Narrow Bold', sans-serif
+    --font-size:Medium
+    --dark: #e473e4;
 }
-
-* {
-    box-sizing: border-box;
-  }
-
 body{
-    font-family: var(--font);
-    font-size: 16px;
+    background-color: rgb(132, 153, 245);
 }
-
-.header{
-    background-color: var(--main-color);
-    color: white;
+header{
+    width:auto;
+    display:inline-flexbox;
+    color: rgb(207, 48, 212);
+    font-family: var(--font-family);
+    height: 69px;
+    justify-content:end;
+    border-radius: 35px;
+    padding-bottom: 7px;
+}
+main{
+    display:inline;
     text-align: center;
 }
-
-aside{
+.search-section{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    border: var(--border);
-    border-radius: var(--border-radius);
-    float: left; /*the 'float' CSS property floats the <aside> element to the left-hand side of its containing element '<main>'
-    (usually the <body> or a parent <div>). It allows other elements (weather div and forecast div) to flow around it.*/
-    width: 25%; /*sets the width of the <aside> element to 25% of its containing element's (<main>) width.*/
 }
-
-#search-div{
-    display: flex; /*makes this div a flex container*/
-    flex-direction: column; /*makes the main the main axis of the flex items a column [y](stack underneath e/o)*/
-    align-items: center; /*aligns the flex items in the center of the cross axis [row ie x] */
+aside{
+    float: left;
 }
-
-#search-history-div{
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
+#location{
+    margin-left: 45px;
+    width: 330px;
+    height: 35px;
+    border-radius: 8px;
+    border: 5px solid var(--dark);   
 }
-.recent-searches{
-    border: var(--border);
-    border-radius: var(--border-radius);  
+#search{
+    margin-left: 45px;
+    width: 330px;
+    height: 35px;
+    border-radius: 8px;
+    border: 5px solid var(--dark);   
 }
-
+section{
+    flex: 1 1 0;
+    float:inherit    
+}
 #weather{
-    border: var(--border);
-    border-radius: var(--border-radius);
-    float: right;
-    width: 75%;
+    background-color: rgb(123, 219, 231);
+    height:215px;
+    margin: 25px;
+    padding: 25px;
 }
-#location-header{
-    font-size: 25px;
+.weather-location{
+    padding: 15px;
+    font-size: 35px;
+    font-family: var(--font-family);
     font-weight: bold;
+    margin-left: 8px;
+    color: var(--dark);
 }
-
-#weather-forecast{
-    border: var(--border);
-    border-radius: var(--border-radius);
-    float: right;
-    width: 75%;
+span{
+    padding: 25px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif';
+    font-size: 25px;
+},
+#imgWeather{
+    float: center;
+    margin: right 15px;15px;
+    margin-top: -45px;
 }
-
-#forecast-days{
+.forecastItem{
+    display: table;
+}
+ #search{
+    background-color: rgb(138, 206, 55);
+    font-family: var(--font-family);
+    font-size: 26px;
+}
+h2{
+    margin-left: 20px;
+    font-family: var(--font-family);
+    color: #ebcb40;
+}
+hr{
+    width:350px;
+    border:#f3aff3 1px outset;
+    margin-left: 20px;
+}
+#recentLocations{
+    margin-left: 10px;
+}
+button {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    margin: 7px;
+    padding: 7px;
+    justify-content: center;
+    height: 48px;
+    width: 100%;
+    font-size: 25px;
+    background-color: #b0e45d;
+    border-radius: 7px;
+    border: var(--dark);
+    margin-left: 15px;
 }
-.forecast-day{
-    border: var(--border);
-    border-radius: var(--border-radius);
+.temperature{
+    padding: 7px;
+    font-family: var(--font-family);
+    color: var(--dark);
+    font-size: 15px;
+}
+.wind{
+    padding: 7px;
+    font-family: var(--font-family);
+    color: var(--dark);
+}
+.humidity{
+    padding: 7px;
+    font-family: var(--font-family);
+    color: var(--dark);
+}
+.forecast-temp{
+    padding: 7px;
+}
+.forecast-wind{
+    padding: 7px;
+}
+.forecast-humidity{
+    padding: 7px;
+}
+li{
+    float: left;
+    padding: 12px;
+    background-color: #e9ec3f;
+    width: 170px;
+    height: 222px;
+    margin: 10px;
+    border-radius: 18px;
+    font-family: var(--font-family);
+}
+.forecastName{
+    font-weight: 100;
+    color: var(--dark);
+    font-family: var(--font-family);
 }
