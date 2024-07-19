@@ -2,6 +2,33 @@ const WEATHER_API_BASE_URL = 'https://api.openweathermap.org/data/2.5';
 const WEATHER_API_KEY = 'f23ee9deb4e1a7450f3157c44ed020e1';
 const GEO_API_BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}'
 const MAX_DAILY_FORECAST = 5;
+api_url = 'http://api.openweathermap.org/data/2.5/weather?lat=' +
+          lat + '&lon=' + 
+          lon + '&units=metric&appid=b231606340553d9174136f7f083904b3';
+          APPID: '53f9d8e4213222cf517d86dc406d67fc'
+
+navigator.geolocation.getCurrentPosition((position) => {
+    const lat = position.coords.latitude;
+    const long = position.coords.longitude;
+    const apiKey = '<f23ee9deb4e1a7450f3157c44ed020e1>';
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}`;
+
+    const numbers = [1, 2, 3, 4, 5];
+
+const evenNumbers = numbers.filter(function (number) {
+  return number % 2 === 0;
+});
+
+console.log(evenNumbers); // Output: [2, 4]
+  
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        const temp = data.main.temp;
+        console.log(`The current temperature is ${temp} degrees Celsius at latitude ${lat} and longitude ${long}.`);
+      })
+      .catch(error => console.log(error));
+  });
 
 const searchInputEl = document.getElementById('search-box');
 const searchButtonEl = document.getElementById('submit-btn');
@@ -121,7 +148,8 @@ searchButtonEl.addEventListener('click', () => {
     if (city) {
         fetchWeatherData(city);
         searchInputEl.value = '';
-    }
-});
 
+    https://enlight.nyc/projects/weather#:~:text=actual%20weather%20data.-,function%20getWeather()%20%7B%0A%20%20let%20temperature%20%3D%20document.getElementById(,%7B%0A%20%20%20%20location.innerHTML%20%3D%20%22Unable%20to%20retrieve%20your%20location%22%3B%0A%20%20%7D%0A%7D%0A%0AgetWeather()%3B,-There%20you%20have;
+
+});
 displaySearchHistory();
