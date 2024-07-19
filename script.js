@@ -1,6 +1,6 @@
 const WEATHER_API_BASE_URL = 'https://api.openweathermap.org/data/2.5';
 const WEATHER_API_KEY = 'f23ee9deb4e1a7450f3157c44ed020e1';
-const GEO_API_BASE_URL = 'https://api.openweathermap.org/geo/1.0/direct';
+const GEO_API_BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}'
 const MAX_DAILY_FORECAST = 5;
 
 const searchInputEl = document.getElementById('search-box');
